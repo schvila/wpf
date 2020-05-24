@@ -1,17 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace FirstApp.Folder
+namespace FirstApp.Controls
 {
-    /// <summary>
-    /// Interaction logic for FirstControl.xaml
-    /// </summary>
-    public partial class FirstControl : UserControl
+    public class MyControl : Button
     {
-        public FirstControl()
-        {
-            InitializeComponent();
-        }
         public string MyLabel
         {
             get { return (string)GetValue(_myDependencyProperty); }
@@ -21,9 +14,8 @@ namespace FirstApp.Folder
         DependencyProperty _myDependencyProperty = DependencyProperty.Register(
             "MyLabel",
             typeof(string),
-            typeof(FirstControl),
+            typeof(MyControl),
             new PropertyMetadata("DefVal"/*,
                 new PropertyChangedCallback(propertyChangedCallback)*/));
-
     }
 }

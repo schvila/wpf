@@ -10,4 +10,8 @@
     <PropertyPageSchema Remove="Resource.xaml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
 </Project>
