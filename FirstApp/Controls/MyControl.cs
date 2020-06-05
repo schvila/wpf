@@ -11,11 +11,19 @@ namespace FirstApp.Controls
             set { SetValue(_myDependencyProperty, value); }
         }
 
-        DependencyProperty _myDependencyProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty _myDependencyProperty = DependencyProperty.Register(
             "MyLabel",
             typeof(string),
             typeof(MyControl),
-            new PropertyMetadata("DefVal"/*,
-                new PropertyChangedCallback(propertyChangedCallback)*/));
+            new PropertyMetadata("DefVal",
+                new PropertyChangedCallback(propertyChangedCallback)));
+
+        private static void propertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            //MyControl mc = d as MyControl;
+            //mc.MyLabel = "nepouzivat";
+            //e.NewValue
+            //e.OldValue
+        }
     }
 }
