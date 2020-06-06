@@ -5,20 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mujContent="clr-namespace:FirstApp.Folder"
         xmlns:ctrls="clr-namespace:FirstApp.Controls" 
+        xmlns:converters="clr-namespace:FirstApp.Converters" 
         xmlns:viewmodel="clr-namespace:FirstApp.ViewModel"
         mc:Ignorable="d"
         Title="Formular" Height="300" Width="300">
     <Window.DataContext>
         <viewmodel:MyViewModel></viewmodel:MyViewModel>
     </Window.DataContext>
-    <Grid>
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid Background="Aqua">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
-            <!--<RowDefinition/>-->
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <mujContent:FirstControl Grid.Row="0"></mujContent:FirstControl>
-        <ctrls:MyControl Grid.Row="1" MyLabel="{Binding Path=Label}"/>
+        <ctrls:MyControl Grid.Row="1" Content="{Binding Label}" Visibility="{Binding IsChecked, ElementName=ToggleButton, 
+            Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+        <ToggleButton x:Name="ToggleButton" Grid.Row="2" Width="20" Height="20" Content="On"/>
+            <!--<ctrls:MyControl.Focusable>
+                <MultiBinding>
+                    <Binding Path=".."/>
+                </MultiBinding>
+            </ctrls:MyControl.Focusable>-->
+        
     </Grid>
     <!--<StackPanel Orientation="Horizontal">
         <Button Width="200" Height="100">Button 1</Button>
