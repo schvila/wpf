@@ -3,22 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:loc="clr-namespace:FirstApp.Folder"
-        xmlns:ctrls="clr-namespace:FirstApp.Controls" xmlns:viewmodel="clr-namespace:FirstApp.ViewModel"
+        xmlns:mujContent="clr-namespace:FirstApp.Folder"
+        xmlns:ctrls="clr-namespace:FirstApp.Controls" 
+        xmlns:converters="clr-namespace:FirstApp.Converters" 
+        xmlns:viewmodel="clr-namespace:FirstApp.ViewModel"
         mc:Ignorable="d"
-        Title="MojeAplikace" Height="300" Width="300">
+        Title="Formular" Height="300" Width="300">
     <Window.DataContext>
         <viewmodel:MyViewModel></viewmodel:MyViewModel>
     </Window.DataContext>
-    <Grid>
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid Background="Aqua">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <loc:FirstControl Grid.Row="0"></loc:FirstControl>
-        <Button Height="30" Grid.Row="1">Ahoj</Button>
-        <ctrls:MyControl Grid.Row="2" MyLabel="{Binding Path=Label}"/>
+        <mujContent:FirstControl Grid.Row="0"></mujContent:FirstControl>
+        <ctrls:MyControl Grid.Row="1" Content="{Binding Label}" Visibility="{Binding IsChecked, ElementName=ToggleButton, 
+            Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+        <ToggleButton x:Name="ToggleButton" Grid.Row="2" Width="20" Height="20" Content="On"/>
+            <!--<ctrls:MyControl.Focusable>
+                <MultiBinding>
+                    <Binding Path=".."/>
+                </MultiBinding>
+            </ctrls:MyControl.Focusable>-->
+        
     </Grid>
     <!--<StackPanel Orientation="Horizontal">
         <Button Width="200" Height="100">Button 1</Button>

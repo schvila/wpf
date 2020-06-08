@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApp", "FirstApp\FirstApp.csproj", "{1B7F8101-3D9D-4FD0-A43F-D28BE5C60FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp", "FirstApp\FirstApp.csproj", "{1B7F8101-3D9D-4FD0-A43F-D28BE5C60FF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkshopCalculator", "WorkshopCalculator\WorkshopCalculator.csproj", "{66AB61E0-9D8C-4440-B716-DB521FA9646D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1B7F8101-3D9D-4FD0-A43F-D28BE5C60FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B7F8101-3D9D-4FD0-A43F-D28BE5C60FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B7F8101-3D9D-4FD0-A43F-D28BE5C60FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66AB61E0-9D8C-4440-B716-DB521FA9646D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66AB61E0-9D8C-4440-B716-DB521FA9646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66AB61E0-9D8C-4440-B716-DB521FA9646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66AB61E0-9D8C-4440-B716-DB521FA9646D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

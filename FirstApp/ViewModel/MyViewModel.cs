@@ -13,7 +13,7 @@ namespace FirstApp.ViewModel
             set
             {
                 model.Label = value;
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Label"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
             }
         }
 

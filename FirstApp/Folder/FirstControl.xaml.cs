@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace FirstApp.Folder
 {
@@ -12,18 +11,18 @@ namespace FirstApp.Folder
         {
             InitializeComponent();
         }
-        public string MyLabel
-        {
-            get { return (string)GetValue(_myDependencyProperty); }
-            set { SetValue(_myDependencyProperty, value); }
-        }
+        //public string MyLabel
+        //{
+        //    get { return (string)GetValue(_myDependencyProperty); }
+        //    set { SetValue(_myDependencyProperty, value); }
+        //}
 
-        DependencyProperty _myDependencyProperty = DependencyProperty.Register(
-            "MyLabel",
-            typeof(string),
-            typeof(FirstControl),
-            new PropertyMetadata("DefVal"/*,
-                new PropertyChangedCallback(propertyChangedCallback)*/));
+        //DependencyProperty _myDependencyProperty = DependencyProperty.Register(
+        //    "MyLabel",
+        //    typeof(string),
+        //    typeof(FirstControl),
+        //    new PropertyMetadata("DefVal"/*,
+        //        new PropertyChangedCallback(propertyChangedCallback)*/));
 
     }
 }
