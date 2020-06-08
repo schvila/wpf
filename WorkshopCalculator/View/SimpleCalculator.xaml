@@ -32,26 +32,26 @@
                 </TextBox>
             </StackPanel>
 
-            <Button Content="/" Grid.Row="1" Grid.Column="0" Margin="10" />
-            <Button Content="*" Grid.Row="1" Grid.Column="1" Margin="10" />
-            <Button Content="-" Grid.Row="1" Grid.Column="2" Margin="10" />
+            <Button Content="/" Grid.Row="1" Grid.Column="0" Margin="10" Command="{Binding DivideCommand}"/>
+            <Button Content="*" Grid.Row="1" Grid.Column="1" Margin="10" Command="{Binding MultiplyCommand}"/>
+            <Button Content="-" Grid.Row="1" Grid.Column="2" Margin="10" Command="{Binding SubstractCommand}"/>
             <Button Content="Delete" Grid.Row="1" Grid.Column="3" Margin="10"  />
 
-            <Button Content="7" Grid.Row="2" Grid.Column="0" Margin="10" />
-            <Button Content="8" Grid.Row="2" Grid.Column="1" Margin="10" />
-            <Button Content="9" Grid.Row="2" Grid.Column="2" Margin="10" />
-            <Button Content="+" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="10" Click="PlusButton_OnClick"/>
+            <Button Content="7" Grid.Row="2" Grid.Column="0" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="8" Grid.Row="2" Grid.Column="1" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="9" Grid.Row="2" Grid.Column="2" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="+" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="10" Command="{Binding AddCommand}"/>
 
-            <Button Content="4" Grid.Row="3" Grid.Column="0" Margin="10" />
-            <Button Content="5" Grid.Row="3" Grid.Column="1" Margin="10" />
-            <Button Content="6" Grid.Row="3" Grid.Column="2" Margin="10" />
+            <Button Content="4" Grid.Row="3" Grid.Column="0" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" />
+            <Button Content="5" Grid.Row="3" Grid.Column="1" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="6" Grid.Row="3" Grid.Column="2" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
             
-            <Button Content="1" Grid.Row="4" Grid.Column="0" Margin="10" />
-            <Button Content="2" Grid.Row="4" Grid.Column="1" Margin="10" />
-            <Button Content="3" Grid.Row="4" Grid.Column="2" Margin="10" />
-            <Button Content="=" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Margin="10"  />
+            <Button Content="1" Grid.Row="4" Grid.Column="0" Margin="10" Click="ButtonBase1Click"/>
+            <Button Content="2" Grid.Row="4" Grid.Column="1" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" />
+            <Button Content="3" Grid.Row="4" Grid.Column="2" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
+            <Button Content="=" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Margin="10"  Command="{Binding CalculateCommand}"/>
 
-            <Button Content="0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"  />
+            <Button Content="0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"  Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
             <Button Content="." Grid.Row="5" Grid.Column="2" Margin="10"  />
         </Grid>
     </Border>

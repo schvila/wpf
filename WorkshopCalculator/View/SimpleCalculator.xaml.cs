@@ -19,36 +19,10 @@ namespace WorkshopCalculator.View
         {
 
         }
-        private void Button_1(object sender, RoutedEventArgs e)
+        private void ButtonBase1Click(object sender, RoutedEventArgs e)
         {
+            ((ICalculatorViewModel)DataContext).WriteToTextBox((1));
+            e.Handled = true;
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-        /// <summary>
-        /// pridano z xaml click= vygeneroval metodu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PlusButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
-            ((ICalculatorViewModel)DataContext).Add();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void OnKeyDown(object sender, KeyEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-
     }
 }
