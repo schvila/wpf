@@ -6,8 +6,30 @@
              xmlns:viewModels="clr-namespace:WorkshopCalculator.ViewModel" 
              mc:Ignorable="d" 
              d:DataContext="{d:DesignData viewModels:SimpleCalculatorViewModel}">
-
+    <Control.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Yellow"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="1">
+                    <Setter Property="Background" Value="Yellow"></Setter>
+                </DataTrigger> 
+            </Style.Triggers>
+        </Style>
+        <!--<system.String x:Key="Popisek">ahoj</system.String>-->
+        <RotateTransform x:Key="RotateTransform">
+            <RotateTransform.Angle>45</RotateTransform.Angle>
+        </RotateTransform>
+    </Control.Resources>
     <Border Padding="10" Width="350" Height="450" >
+        <TabControl>
+            <TabItem Header="Calc">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -32,15 +54,19 @@
                 </TextBox>
             </StackPanel>
 
-            <Button Content="/" Grid.Row="1" Grid.Column="0" Margin="10" Command="{Binding DivideCommand}"/>
+            <!--Style="{StaticResource redb}"-->
+            <Button Content="/" Grid.Row="1" Grid.Column="0" Margin="10" 
+                    Command="{Binding DivideCommand}"/>
             <Button Content="*" Grid.Row="1" Grid.Column="1" Margin="10" Command="{Binding MultiplyCommand}"/>
             <Button Content="-" Grid.Row="1" Grid.Column="2" Margin="10" Command="{Binding SubstractCommand}"/>
-            <Button Content="Delete" Grid.Row="1" Grid.Column="3" Margin="10"  />
+            <Button Content="Delete" Grid.Row="1" RenderTransform="{StaticResource RotateTransform}" RenderTransformOrigin=".5,.5" Grid.Column="3" Margin="10"  />
 
             <Button Content="7" Grid.Row="2" Grid.Column="0" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
             <Button Content="8" Grid.Row="2" Grid.Column="1" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
             <Button Content="9" Grid.Row="2" Grid.Column="2" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
-            <Button Content="+" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="10" Command="{Binding AddCommand}"/>
+            <Button Content="Plus" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="10" Command="{Binding AddCommand}">
+            </Button>
+                    
 
             <Button Content="4" Grid.Row="3" Grid.Column="0" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" />
             <Button Content="5" Grid.Row="3" Grid.Column="1" Margin="10" Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
@@ -54,5 +80,49 @@
             <Button Content="0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"  Command="{Binding WriteValueCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}"/>
             <Button Content="." Grid.Row="5" Grid.Column="2" Margin="10"  />
         </Grid>
+            </TabItem>
+            <TabItem Header="Excercise">
+                <StackPanel Orientation="Vertical">
+                    <Button Content="ahoj">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Duration="0:0:3" Storyboard.TargetProperty="BorderThickness" To="20"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Template">
+                <Grid>
+                    <Grid.Resources>
+                        <ControlTemplate x:Key="buttonTemplate" TargetType="{x:Type Button}">
+                            <Ellipse Width="100" Height="30" Fill="Yellow">
+                            </Ellipse>
+                        </ControlTemplate>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="1" Grid.Row="1" Height="30" Width="30" Content="Button" Style="{StaticResource buttonTemplate}">
+                        
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Border>
 </UserControl>

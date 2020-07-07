@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWpf>True</UseWpf>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Class1.cs" />
+    <Resource Include="Images\delete.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dictionary1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+</Project>
