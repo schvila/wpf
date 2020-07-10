@@ -6,19 +6,66 @@
              xmlns:local="clr-namespace:WorkshopCalculator.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <ScaleTransform/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" To="2" Duration="0:0:.5"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" To="2" Duration="0:0:.5"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleX" To="1" Duration="0:0:.5"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetProperty="LayoutTransform.ScaleY" To="1" Duration="0:0:.5"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Grid.Loaded">
+                <BeginStoryboard>
+                    <Storyboard TargetProperty="Opacity" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Part1" Duration="0:0:2" To="1" AutoReverse="True" BeginTime="0:0:2"/>
+                        <DoubleAnimation Storyboard.TargetName="Part2" Duration="0:0:2" To="1" AutoReverse="True" BeginTime="0:0:6"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
 
         <ProgressBar Name="ProgressBar" Grid.Row="0" Width="400"  Height="30" Value="50" Minimum="0" Maximum="100" MouseEnter="ProgressBar_MouseEnter"/>
         <ProgressBar Grid.Row="1" Width="400"  Height="30" Value="50" Minimum="0" Maximum="100" >
-            <ProgressBar.Foreground>
-                <SolidColorBrush Color="Yellow"/>
-            </ProgressBar.Foreground>
+            <ProgressBar.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="GreenYellow" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                    <GradientStop Color="GreenYellow" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
             <ProgressBar.Triggers>
                 <EventTrigger RoutedEvent="ProgressBar.MouseEnter">
                     <BeginStoryboard>
@@ -26,15 +73,27 @@
                             <DoubleAnimation From="0" To="100" Duration="0:0:5" SpeedRatio="2"/>
                         </Storyboard>
                     </BeginStoryboard>
-                    <BeginStoryboard>
-                        <Storyboard TargetProperty="Foreground.Color">
-                            <ColorAnimation From="Yellow" To="Red" RepeatBehavior="Forever" AutoReverse="True"/>
+                    <!--<BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Foreground.GradientStops[1].Offset" From="0" To="1" Duration="0:0:0:2" RepeatBehavior="Forever" AutoReverse="True"/>
                         </Storyboard>
-                    </BeginStoryboard>
+                    </BeginStoryboard>-->
                 </EventTrigger>
             </ProgressBar.Triggers>
         </ProgressBar>
         <TextBox Grid.Row="2" Height="20" Width="50" Text="{Binding ElementName=ProgressBar, Path=Value}"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button>1</Button>
+            <Button>2</Button>
+            <Button>3</Button>
+            <Button>4</Button>
+            <Button>5</Button>
+            <Button>6</Button>
+            <Button>7</Button>
+            <Button>8</Button>
+            <TextBlock x:Name="Part1">Ahoj</TextBlock>
+            <TextBlock x:Name="Part2">To je nahodicka</TextBlock>
+        </StackPanel>
 
     </Grid>
 </UserControl>

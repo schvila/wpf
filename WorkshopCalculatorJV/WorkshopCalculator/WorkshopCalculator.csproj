@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\delete.gif" />
+    <None Remove="Resources\fly.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Resources\Resources.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\fly.png" />
   </ItemGroup>
 
 </Project>
