@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:WorkshopCalculator.View"
         mc:Ignorable="d"
-        Title="Edhouse C# workshop" >
+        Title="Edhouse C# workshop" Height="400" Width="408">
     <!--MinHeight="250" MinWidth="150" MaxHeight="650" MaxWidth="550" Height="320" Width="408"-->
     <Grid>
         <Grid.RowDefinitions>
@@ -167,6 +167,15 @@
                         </Button.Style>
                     </Button>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Lekce 4">
+                <views:Lekce4></views:Lekce4>
+            </TabItem>
+            <!--<TabItem Header="Animace">
+                <views:AnimationTab></views:AnimationTab>
+            </TabItem>-->
+            <TabItem Header="Anim2">
+                <views:Anim2></views:Anim2>
             </TabItem>
         </TabControl>
         <StatusBar Grid.Row="1">

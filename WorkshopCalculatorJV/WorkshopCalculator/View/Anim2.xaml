@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WorkshopCalculator.View.Anim2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WorkshopCalculator.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ProgressBar Name="ProgressBar" Grid.Row="0" Width="400"  Height="30" Value="50" Minimum="0" Maximum="100" MouseEnter="ProgressBar_MouseEnter"/>
+        <ProgressBar Grid.Row="1" Width="400"  Height="30" Value="50" Minimum="0" Maximum="100" >
+            <ProgressBar.Foreground>
+                <SolidColorBrush Color="Yellow"/>
+            </ProgressBar.Foreground>
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="ProgressBar.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Value">
+                            <DoubleAnimation From="0" To="100" Duration="0:0:5" SpeedRatio="2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Foreground.Color">
+                            <ColorAnimation From="Yellow" To="Red" RepeatBehavior="Forever" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+        </ProgressBar>
+        <TextBox Grid.Row="2" Height="20" Width="50" Text="{Binding ElementName=ProgressBar, Path=Value}"/>
+
+    </Grid>
+</UserControl>
