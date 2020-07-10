@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:WorkshopCalculator.View"
         mc:Ignorable="d"
-        Title="Edhouse C# workshop" MinHeight="250" MinWidth="150" MaxHeight="650" MaxWidth="550" Height="320" Width="408">
+        Title="Edhouse C# workshop" >
+    <!--MinHeight="250" MinWidth="150" MaxHeight="650" MaxWidth="550" Height="320" Width="408"-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

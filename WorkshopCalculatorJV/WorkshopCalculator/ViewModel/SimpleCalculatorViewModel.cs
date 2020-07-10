@@ -97,7 +97,9 @@ namespace WorkshopCalculator.ViewModel
 
         public IEnumerable GetErrors(string propertyName)
         {
-            return errors[propertyName];
+            if(errors.ContainsKey(propertyName))
+                return errors[propertyName];
+            return null;
         }
 
         public bool HasErrors => errors.Any();
